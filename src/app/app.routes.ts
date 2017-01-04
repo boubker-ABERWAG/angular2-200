@@ -1,4 +1,3 @@
-import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 // APP COMPONENTS
@@ -8,4 +7,4 @@ const ROUTES: Routes = [
   // TODO
 ];
 
-export const AppRoutes = RouterModule.forRoot(ROUTES);
+export const APP_ROUTES = RouterModule.forRoot(ROUTES);
