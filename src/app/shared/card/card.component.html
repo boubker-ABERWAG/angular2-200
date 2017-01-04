@@ -2,11 +2,11 @@
    <md-card-title-group>
       <img md-card-md-image src="{{ person.photo }}">
       <md-card-title>
-        <a href="#/people/{{person.id}}">
+        <a [routerLink]="['/person', person.id]">
           <span>{{ person.firstname }} {{ person.lastname }}</span>
         </a>
       </md-card-title>
-      <md-card-subtitle>{{ person.entity }}</md-card-subtitle>
+      <md-card-subtitle>{{ person.entity | na }}</md-card-subtitle>
       <md-card-subtitle class="contact-info">
         <md-icon svgSrc="assets/images/icon-mail.svg"></md-icon>
         <a href="mailto:{{ person.firstname }} {{ person.lastname }}&lt;{{ person.email }}&gt;" title="Send an email to {{ person.firstname }} {{ person.lastname }}" class="truncate">{{ person.email }}</a>
@@ -20,7 +20,7 @@
    <md-card-content>
      <div class="contact-info">
        Manager&nbsp;:&nbsp;
-       <a href="#/people/1">{{ person.manager | na }}</a>
+       <a (click)="goToManagerIfExist()">{{ person.manager | na }}</a>
      </div>
      <div class="contact-info">
        Location&nbsp;:&nbsp;<a href="http://www.sfeir.com/contact/">SFEIR</a>
