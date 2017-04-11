@@ -13,6 +13,7 @@ import { APP_ROUTES } from './app.routes';
 import { PeopleAppComponent } from './app.component';
 import { HomeComponent } from './home';
 import { PersonComponent } from './person';
+import { PeopleComponent } from './people';
 
 @NgModule({
   imports: [
@@ -26,7 +27,8 @@ import { PersonComponent } from './person';
   declarations: [
     PeopleAppComponent,
     HomeComponent,
-    PersonComponent
+    PersonComponent,
+    PeopleComponent
   ],
   providers: [ ],
   bootstrap: [
