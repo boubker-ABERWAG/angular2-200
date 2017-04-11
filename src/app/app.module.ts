@@ -9,6 +9,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import { PeopleAppComponent } from './app.component';
 import { HomeComponent } from './home';
+import { PersonComponent } from './person';
 
 @NgModule({
   imports: [
@@ -18,7 +19,8 @@ import { HomeComponent } from './home';
   ],
   declarations: [
     PeopleAppComponent,
-    HomeComponent
+    HomeComponent,
+    PersonComponent
   ],
   providers: [ ],
   bootstrap: [
