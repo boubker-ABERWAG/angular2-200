@@ -9,6 +9,7 @@ import { MaterialModule } from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import { PeopleAppComponent } from './app.component';
+import { HomeComponent } from './home';
 
 @NgModule({
   imports: [
@@ -17,11 +18,12 @@ import { PeopleAppComponent } from './app.component';
     MaterialModule.forRoot()
   ],
   declarations: [
-    PeopleAppComponent
+    PeopleAppComponent,
+    HomeComponent
   ],
   providers: [ ],
   bootstrap: [
-    PeopleAppComponent
+    HomeComponent
   ]
 })
 export class AppModule { }
