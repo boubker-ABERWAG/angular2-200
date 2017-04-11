@@ -23,7 +23,7 @@ import { HomeComponent } from './home';
   ],
   providers: [ ],
   bootstrap: [
-    HomeComponent
+    PeopleAppComponent
   ]
 })
 export class AppModule { }
