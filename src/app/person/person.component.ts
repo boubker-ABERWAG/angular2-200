@@ -23,6 +23,6 @@ export class PersonComponent implements OnInit {
      * Returns random people
      */
     random() {
-        this._person = PEOPLE[ (Math.random() * PEOPLE.length) | 0 ];
+        this.person = PEOPLE[ (Math.random() * PEOPLE.length) | 0 ];
     }
 }
