@@ -8,7 +8,7 @@ import 'hammerjs';
 import { MaterialModule } from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
-// import { APP_ROUTES } from './app.routes';
+import { APP_ROUTES } from './app.routes';
 
 import { PeopleAppComponent } from './app.component';
 import { HomeComponent } from './home';
@@ -20,7 +20,8 @@ import { PersonComponent } from './person';
     BrowserAnimationsModule,
     MaterialModule.forRoot(),
     HttpModule,
-    // APP_ROUTES
+    RouterModule,
+    APP_ROUTES
   ],
   declarations: [
     PeopleAppComponent,
