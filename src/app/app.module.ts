@@ -36,7 +36,8 @@ import { PeopleComponent } from './people';
     MdRadioModule,
     MdIconModule,
     MdListModule,
-    HttpClientModule
+    HttpClientModule,
+    APP_ROUTES
   ],
   declarations: [
     PeopleAppComponent,
