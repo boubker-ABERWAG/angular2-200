@@ -1,8 +1,7 @@
 // CORE DEPS
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpModule } from '@angular/http';
-import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 // MATERIAL DESIGN MODULES
 import {
   MdToolbarModule,
@@ -35,7 +34,8 @@ import { PersonComponent } from './person';
     MdCheckboxModule,
     MdRadioModule,
     MdIconModule,
-    MdListModule
+    MdListModule,
+    HttpClientModule
   ],
   declarations: [
     PeopleAppComponent,
