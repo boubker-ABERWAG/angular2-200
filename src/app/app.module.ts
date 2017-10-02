@@ -2,8 +2,17 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 // MATERIAL DESIGN MODULES
-import 'hammerjs';
-import { MaterialModule } from '@angular/material';
+import {
+  MdToolbarModule,
+  MdCardModule,
+  MdTabsModule,
+  MdButtonModule,
+  MdInputModule,
+  MdCheckboxModule,
+  MdRadioModule,
+  MdIconModule,
+  MdListModule
+} from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import { PeopleAppComponent } from './app.component';
@@ -13,7 +22,15 @@ import { HomeComponent } from './home';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    MaterialModule.forRoot()
+    MdToolbarModule,
+    MdCardModule,
+    MdTabsModule,
+    MdButtonModule,
+    MdInputModule,
+    MdCheckboxModule,
+    MdRadioModule,
+    MdIconModule,
+    MdListModule
   ],
   declarations: [
     PeopleAppComponent,
