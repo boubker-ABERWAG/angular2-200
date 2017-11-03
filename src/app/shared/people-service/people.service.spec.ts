@@ -1,151 +1,138 @@
 import { Subject } from 'rxjs/Subject';
-import { HttpModule } from '@angular/http';
-import { MockBackend } from '@angular/http/testing';
+import { HttpClient } from '@angular/common/http';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 /* tslint:disable:no-unused-variable */
 
-import { TestBed, async, fakeAsync, inject, tick } from '@angular/core/testing';
+import { TestBed, async, fakeAsync, getTestBed, inject, tick } from '@angular/core/testing';
 import { PeopleService } from './people.service';
-import { Http, XHRBackend, Response, ResponseOptions } from '@angular/http';
+import { Http, XHRBackend, Response, ResponseOptions } from "@angular/http";
 import 'rxjs/add/operator/map';
-
 // @todo(wassim): there is a weird behavior with mock responses
 // they return Promises instead of the actual "expectedResponse" object.
 describe('PeopleService', () => {
   let service;
-  let mockbackend;
-  let lastConnection;
-  let expectedResponse = [{
-    "id": "123",
-    "lastname": "Powers",
-    "firstname": "Black",
-    "twitter": "labore",
-  }, {
-    "id": "456",
-    "lastname": "Shaffer",
-    "firstname": "Vargas",
-    "twitter": "irure",
-  }, {
-    "id": "789",
-    "lastname": "Yang",
-    "firstname": "Mendez",
-    "twitter": "excepteur",
-  }];
+  let httpMock;
+  let injector;
+  let expectedResponse;
 
-  const responseOptions = (body, status = 200) => {
-    return new ResponseOptions({
-      status,
-      body: JSON.stringify(body)
-    });
-  };
+
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [HttpModule],
-      providers: [
-        PeopleService,
-        { provide: XHRBackend, useClass: MockBackend }
-      ]
+      imports: [HttpClientTestingModule],
+      providers: [PeopleService]
     });
+    injector = getTestBed();
+    service = injector.get(PeopleService);
+    httpMock = injector.get(HttpTestingController);
+
+    expectedResponse = [{
+      "id": "123",
+      "lastname": "Powers",
+      "firstname": "Black",
+      "twitter": "labore",
+    }, {
+      "id": "456",
+      "lastname": "Shaffer",
+      "firstname": "Vargas",
+      "twitter": "irure",
+    }, {
+      "id": "789",
+      "lastname": "Yang",
+      "firstname": "Mendez",
+      "twitter": "excepteur",
+    }];
+
+  });
+
+  afterEach(() => {
+    httpMock.verify();
   });
 
   describe('fetch()', () => {
 
-    it('should fetch all people when status === 200', inject([PeopleService, XHRBackend], (service, mockbackend) => {
+    it('should fetch all people when status', inject([PeopleService], (service) => {
 
-      mockbackend.connections.subscribe(connection => {
-        connection.mockRespond(new Response(
-          new ResponseOptions(responseOptions(expectedResponse))
-        ));
-      });
+      //TODO
 
-      // todo
-
-    }));
-
-    it('should fetch empty array when status !== 200', inject([PeopleService, XHRBackend], (service, mockbackend) => {
-
-      mockbackend.connections.subscribe(connection => {
-        connection.mockRespond(new Response(
-          new ResponseOptions(responseOptions(expectedResponse, 404))
-        ));
-      });
-
-      // todo
+      const req = httpMock.expectOne(service._backendURL.allPeople);
+      expect(req.request.method).toBe('GET');
+      req.flush(expectedResponse);
 
     }));
   });
+
 
   describe('fetchRandom()', () => {
 
-    it('should fetch random person when status === 200', inject([PeopleService, XHRBackend], (service, mockbackend) => {
+    it('should fetch random person when status', inject([PeopleService], (service) => {
 
-      mockbackend.connections.subscribe(connection => {
-        connection.mockRespond(new Response(
-          new ResponseOptions(responseOptions(expectedResponse[1]))
-        ));
-      });
+      //TODO
 
-      // todo
+      const req = httpMock.expectOne(service._backendURL.randomPeople);
+      expect(req.request.method).toBe('GET');
+      req.flush(expectedResponse[1]);
 
-    }));    
+
+
+
+
+    }));
+
   });
+
 
   describe('fetchOne()', () => {
 
-    it('should fetch person with id=456 when status === 200', inject([PeopleService, XHRBackend], (service, mockbackend) => {
+    it('should fetch person with id=456', inject([PeopleService], (service) => {
 
-      mockbackend.connections.subscribe(connection => {
-        connection.mockRespond(new Response(
-          new ResponseOptions(responseOptions(expectedResponse[1]))
-        ));
-      });
+      //TODO
 
-      // todo
+      const req = httpMock.expectOne(service._backendURL.onePeople.replace(':id', '456'));
+      expect(req.request.method).toBe('GET');
+      req.flush(expectedResponse[1]);
+
+
+
+
 
     }));
-    
 
   });
 
   describe('delete()', () => {
 
-    it('should delete person with id=456 when status === 200', inject([PeopleService, XHRBackend], (service, mockbackend) => {
+    it('should delete person with id=456', inject([PeopleService], (service) => {
 
-      mockbackend.connections.subscribe(connection => {
-        const _expectedResponse = Array.from(expectedResponse);
-        _expectedResponse.splice(1, 1); // remove entry=1
+      //TODO
 
-        connection.mockRespond(new Response(
-          new ResponseOptions(responseOptions(_expectedResponse))
-        ));
-      });
+      const req = httpMock.expectOne(service._backendURL.onePeople.replace(':id', '456'));
+      expect(req.request.method).toBe('DELETE');
+      expectedResponse.splice(1, 1);
+      req.flush(expectedResponse);
 
-      // todo
+
+
+
 
     }));
-    
+
   });
 
   describe('update()', () => {
 
-    it('should update person with id=456 when status === 200', inject([PeopleService, XHRBackend], (service, mockbackend) => {
+    it('should update person with id=456', inject([PeopleService], (service) => {
 
       const body = expectedResponse[1];
       body.firstname = 'Wassim';
       body.lastname = 'Chegham';
       body.twitter = '@manekinekko';
 
-      mockbackend.connections.subscribe(connection => {
-        expectedResponse[1].firstname = 'Wassim';
-        expectedResponse[1].lastname = 'Chegham';
-        expectedResponse[1].twitter = '@manekinekko';
+      //TODO
 
-        connection.mockRespond(new Response(
-          new ResponseOptions(responseOptions(expectedResponse[1]))
-        ));
-      });
-
-      // todo
+      const req = httpMock.expectOne(service._backendURL.onePeople.replace(':id', '456'));
+      expect(req.request.method).toBe('PUT');
+      req.flush(expectedResponse[1]);
 
     }));
 
@@ -153,7 +140,7 @@ describe('PeopleService', () => {
 
   describe('create()', () => {
 
-    it('should create person when status === 200', inject([PeopleService, XHRBackend], (service, mockbackend) => {
+    it('should create person', inject([PeopleService], (service) => {
 
       const body = {
         id: '900',
@@ -162,13 +149,11 @@ describe('PeopleService', () => {
         twitter: '@manekinekko',
       };
 
-      mockbackend.connections.subscribe(connection => {
-        connection.mockRespond(new Response(
-          new ResponseOptions(responseOptions(body))
-        ));
-      });
+      //TODO
 
-      // todo
+      const req = httpMock.expectOne(service._backendURL.allPeople);
+      expect(req.request.method).toBe('POST');
+      req.flush(body);
 
     }));
 
