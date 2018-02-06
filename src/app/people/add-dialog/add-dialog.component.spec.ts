@@ -50,7 +50,6 @@ describe('AddDialogComponent', () => {
 
   it('closeDialog should call closing service of dialog', inject([MdDialogRef], (dialogRef) => {
     const result = 'ABC';
-    console.log(dialogRef)
     spyOn(dialogRef, 'close');
     component.closeDialog(result);
     expect(dialogRef.close).toHaveBeenCalledWith(result)

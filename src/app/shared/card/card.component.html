@@ -26,10 +26,10 @@
       Location&nbsp;:&nbsp;<a href="http://www.sfeir.com/contact/">SFEIR</a>
     </div>
     <div class="buttons-info">
-      <a md-button title="Locate" href="#/locator/1">
+      <a md-button title="Locate" [routerLink]="['/locator/', person.id]">
         <md-icon>map</md-icon>
       </a>
-      <a md-button title="Edit" href="#/edit/1">
+      <a md-button title="Edit" [routerLink]="['/edit/', person.id]">
         <md-icon>create</md-icon>
       </a>
       <a md-button title="Delete" (click)="delete(person)">
