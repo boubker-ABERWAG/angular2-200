@@ -3,15 +3,15 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 // MATERIAL DESIGN MODULES
 import {
-  MdToolbarModule,
-  MdCardModule,
-  MdTabsModule,
-  MdButtonModule,
-  MdInputModule,
-  MdCheckboxModule,
-  MdRadioModule,
-  MdIconModule,
-  MdListModule
+  MatToolbarModule,
+  MatCardModule,
+  MatTabsModule,
+  MatButtonModule,
+  MatInputModule,
+  MatCheckboxModule,
+  MatRadioModule,
+  MatIconModule,
+  MatListModule
 } from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
@@ -22,15 +22,15 @@ import { HomeComponent } from './home';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    MdToolbarModule,
-    MdCardModule,
-    MdTabsModule,
-    MdButtonModule,
-    MdInputModule,
-    MdCheckboxModule,
-    MdRadioModule,
-    MdIconModule,
-    MdListModule
+    MatToolbarModule,
+    MatCardModule,
+    MatTabsModule,
+    MatButtonModule,
+    MatInputModule,
+    MatCheckboxModule,
+    MatRadioModule,
+    MatIconModule,
+    MatListModule
   ],
   declarations: [
     PeopleAppComponent,
