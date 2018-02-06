@@ -4,16 +4,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 // MATERIAL DESIGN MODULES
 import {
-  MdToolbarModule,
-  MdCardModule,
-  MdTabsModule,
-  MdButtonModule,
-  MdInputModule,
-  MdCheckboxModule,
-  MdRadioModule,
-  MdIconModule,
-  MdListModule,
-  MdDialogModule
+  MatToolbarModule,
+  MatCardModule,
+  MatTabsModule,
+  MatButtonModule,
+  MatInputModule,
+  MatCheckboxModule,
+  MatRadioModule,
+  MatIconModule,
+  MatListModule
 } from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
@@ -30,18 +29,15 @@ import { AddDialogComponent } from './people/add-dialog/add-dialog.component';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    MdToolbarModule,
-    MdCardModule,
-    MdTabsModule,
-    MdButtonModule,
-    MdInputModule,
-    MdCheckboxModule,
-    MdRadioModule,
-    MdIconModule,
-    MdListModule,
-    MdDialogModule,
-    HttpClientModule,
-    APP_ROUTES
+    MatToolbarModule,
+    MatCardModule,
+    MatTabsModule,
+    MatButtonModule,
+    MatInputModule,
+    MatCheckboxModule,
+    MatRadioModule,
+    MatIconModule,
+    MatListModule
   ],
   declarations: [
     PeopleAppComponent,
