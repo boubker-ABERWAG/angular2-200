@@ -1,11 +1,11 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { AddDialogComponent } from './add-dialog.component';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
-import { MdDialogRef, MdDialogModule
+import { MatDialogRef, MatDialogModule
 } from '@angular/material';
 import { inject } from '@angular/core/testing';
 
-class MdDialogRefMock {
+class MatDialogRefMock {
   close() {}
 };
 
@@ -15,11 +15,11 @@ describe('AddDialogComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [ MdDialogModule ],
+      imports: [ MatDialogModule ],
       declarations: [ AddDialogComponent ],
       schemas: [ NO_ERRORS_SCHEMA ],
       providers: [
-        { provide: MdDialogRef, useClass: MdDialogRefMock },
+        { provide: MatDialogRef, useClass: MatDialogRefMock },
       ]
     });
   }));
@@ -48,7 +48,7 @@ describe('AddDialogComponent', () => {
     expect(component.closeDialog).toHaveBeenCalledWith(person);
   });
 
-  it('closeDialog should call closing service of dialog', inject([MdDialogRef], (dialogRef) => {
+  it('closeDialog should call closing service of dialog', inject([MatDialogRef], (dialogRef) => {
     const result = 'ABC';
     spyOn(dialogRef, 'close');
     component.closeDialog(result);
