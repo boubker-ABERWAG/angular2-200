@@ -3,8 +3,11 @@ import { AddDialogComponent } from './add-dialog.component';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { MdDialogRef, MdDialogModule
 } from '@angular/material';
+import { inject } from '@angular/core/testing';
 
-class MdDialogRefMock {};
+class MdDialogRefMock {
+  close() {}
+};
 
 describe('AddDialogComponent', () => {
   let component: AddDialogComponent;
@@ -30,4 +33,26 @@ describe('AddDialogComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should close dialog', () => {
+    spyOn(component, 'closeDialog');
+    component.onCancel();
+
+    expect(component.closeDialog).toHaveBeenCalled();
+  });
+
+  it('should close dialog and pass person value', () => {
+    const person = {id: '1234'};
+    spyOn(component, 'closeDialog');
+    component.onSave(person);
+    expect(component.closeDialog).toHaveBeenCalledWith(person);
+  });
+
+  it('closeDialog should call closing service of dialog', inject([MdDialogRef], (dialogRef) => {
+    const result = 'ABC';
+    console.log(dialogRef)
+    spyOn(dialogRef, 'close');
+    component.closeDialog(result);
+    expect(dialogRef.close).toHaveBeenCalledWith(result)
+  }));
 });

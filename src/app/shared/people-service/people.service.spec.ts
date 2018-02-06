@@ -4,6 +4,7 @@ import { TestBed, async, fakeAsync, inject, tick } from '@angular/core/testing';
 import { PeopleService } from './people.service';
 import { Http, XHRBackend, Response, ResponseOptions } from '@angular/http';
 import 'rxjs/add/operator/map';
+import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClient } from '@angular/common/http';
 // @todo(wassim): there is a weird behavior with mock responses
