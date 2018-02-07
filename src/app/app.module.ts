@@ -12,7 +12,8 @@ import {
   MatCheckboxModule,
   MatRadioModule,
   MatIconModule,
-  MatListModule
+  MatListModule,
+  MatDialogModule
 } from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
@@ -37,7 +38,10 @@ import { AddDialogComponent } from './people/add-dialog/add-dialog.component';
     MatCheckboxModule,
     MatRadioModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
+    MatDialogModule,
+    HttpClientModule,
+    APP_ROUTES
   ],
   declarations: [
     PeopleAppComponent,
@@ -54,3 +58,4 @@ import { AddDialogComponent } from './people/add-dialog/add-dialog.component';
   ]
 })
 export class AppModule { }
+
