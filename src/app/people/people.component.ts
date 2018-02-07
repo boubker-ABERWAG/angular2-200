@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { MdDialog, MdDialogRef, MD_DIALOG_DATA } from '@angular/material';
+import { HttpClient } from '@angular/common/http';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { AddDialogComponent } from './add-dialog/add-dialog.component';
 import { PeopleService } from '../shared/people-service';
 import 'rxjs/add/operator/mergeMap';
@@ -12,12 +13,12 @@ import 'rxjs/add/operator/mergeMap';
 })
 export class PeopleComponent implements OnInit {
 
-    private addDialog: MdDialogRef<AddDialogComponent>;
+    private addDialog: MatDialogRef<AddDialogComponent>;
     people;
     dialogStatus = 'inactive';
     view = 'card';
 
-    constructor(private _peopleService: PeopleService, public dialog: MdDialog) {}
+    constructor(private _http: HttpClient, public dialog: MatDialog) {}
 
 
     /**
