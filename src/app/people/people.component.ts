@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { MdDialog, MdDialogRef, MD_DIALOG_DATA } from '@angular/material';
+import { MatDialog, MatDialogRef, MD_DIALOG_DATA } from '@angular/material';
 import { AddDialogComponent } from './add-dialog/add-dialog.component';
 
 const BASE_URL = 'http://localhost:9000';
@@ -12,12 +12,12 @@ const BASE_URL = 'http://localhost:9000';
 })
 export class PeopleComponent implements OnInit {
 
-    private addDialog: MdDialogRef<AddDialogComponent>;
+    private addDialog: MatDialogRef<AddDialogComponent>;
     people;
     dialogStatus = 'inactive';
     
 
-    constructor(private _http: HttpClient, public dialog: MdDialog) {}
+    constructor(private _http: HttpClient, public dialog: MatDialog) {}
 
 
     /**
