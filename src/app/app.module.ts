@@ -1,7 +1,7 @@
 // CORE DEPS
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 // MATERIAL DESIGN MODULES
 import {
   MatToolbarModule,
@@ -13,7 +13,7 @@ import {
   MatRadioModule,
   MatIconModule,
   MatListModule,
-  MatDialogModule
+  MatDialogModule,
 } from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
@@ -24,7 +24,7 @@ import { HomeComponent } from './home';
 import { PersonComponent } from './person';
 import { PeopleComponent } from './people';
 import { CardComponent } from './shared/card';
-import { AddDialogComponent } from './people/add-dialog/add-dialog.component';
+import { AddDialogComponent } from 'app/people/add-dialog/add-dialog.component';
 
 @NgModule({
   imports: [
@@ -49,13 +49,14 @@ import { AddDialogComponent } from './people/add-dialog/add-dialog.component';
     PersonComponent,
     PeopleComponent,
     CardComponent,
-    AddDialogComponent
+    AddDialogComponent,
   ],
   entryComponents: [AddDialogComponent],
-  providers: [ ],
+  providers: [
+    HttpClient,
+  ],
   bootstrap: [
     PeopleAppComponent
   ]
 })
 export class AppModule { }
-
