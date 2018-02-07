@@ -1,7 +1,7 @@
 // CORE DEPS
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 // MATERIAL DESIGN MODULES
 import {
@@ -13,7 +13,8 @@ import {
   MatCheckboxModule,
   MatRadioModule,
   MatIconModule,
-  MatListModule
+  MatListModule,
+  MatDialogModule,
 } from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
@@ -27,7 +28,7 @@ import { CardComponent } from './shared/card';
 import { AddDialogComponent } from './people/add-dialog/add-dialog.component';
 import { FormComponent } from './shared/form';
 import { UpdateComponent } from './update/update.component';
-import { PeopleService } from './shared/people-service';
+import { PeopleService } from 'app/shared/people-service';
 
 @NgModule({
   imports: [
@@ -41,7 +42,11 @@ import { PeopleService } from './shared/people-service';
     MatCheckboxModule,
     MatRadioModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
+    MatDialogModule,
+    APP_ROUTES,
+    HttpClientModule,
+    ReactiveFormsModule,
   ],
   declarations: [
     PeopleAppComponent,
@@ -55,7 +60,8 @@ import { PeopleService } from './shared/people-service';
   ],
   entryComponents: [AddDialogComponent],
   providers: [
-    PeopleService
+    HttpClient,
+    PeopleService,
   ],
   bootstrap: [
     PeopleAppComponent
