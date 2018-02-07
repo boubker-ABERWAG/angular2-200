@@ -5,16 +5,16 @@ import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 // MATERIAL DESIGN MODULES
 import {
-  MdToolbarModule,
-  MdCardModule,
-  MdTabsModule,
-  MdButtonModule,
-  MdInputModule,
-  MdCheckboxModule,
-  MdRadioModule,
-  MdIconModule,
-  MdListModule,
-  MdDialogModule
+  MatToolbarModule,
+  MatCardModule,
+  MatTabsModule,
+  MatButtonModule,
+  MatInputModule,
+  MatCheckboxModule,
+  MatRadioModule,
+  MatIconModule,
+  MatListModule,
+  MatDialogModule
 } from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
@@ -36,16 +36,16 @@ import { SfeirBadgeDirective } from './shared/badge';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    MdToolbarModule,
-    MdCardModule,
-    MdTabsModule,
-    MdButtonModule,
-    MdInputModule,
-    MdCheckboxModule,
-    MdRadioModule,
-    MdIconModule,
-    MdListModule,
-    MdDialogModule,
+    MatToolbarModule,
+    MatCardModule,
+    MatTabsModule,
+    MatButtonModule,
+    MatInputModule,
+    MatCheckboxModule,
+    MatRadioModule,
+    MatIconModule,
+    MatListModule,
+    MatDialogModule,
     HttpClientModule,
     APP_ROUTES,
     ReactiveFormsModule
