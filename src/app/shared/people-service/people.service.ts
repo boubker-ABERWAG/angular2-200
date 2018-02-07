@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
-import { Observable } from 'rxjs';
 import { environment } from '../../../environments/environment';
 import { Store } from '@ngrx/store';
 import * as PeopleAction from '../../store/actions/people.actions';
 import * as fromRoot from '../../store/reducers';
+import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class PeopleService {

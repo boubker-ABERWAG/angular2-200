@@ -22,7 +22,7 @@ export class PeopleComponent implements OnInit {
     dialogStatus = 'inactive';
     view = 'card';
 
-    constructor(private _http: HttpClient, public dialog: MatDialog, private _peopleService: PeopleService) {}
+    constructor(private store: Store<any>, private _http: HttpClient, public dialog: MatDialog, private _peopleService: PeopleService) {}
 
 
     /**
