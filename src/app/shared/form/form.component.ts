@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, Input, EventEmitter, OnChanges } from '@angular/core';
-import { FormControl, Validators, FormGroup } from "@angular/forms";
+import { FormControl, Validators, FormGroup } from '@angular/forms';
 
 @Component({
     selector: 'sfeir-form',
@@ -7,23 +7,20 @@ import { FormControl, Validators, FormGroup } from "@angular/forms";
     styleUrls: ['form.component.css']
 })
 export class FormComponent implements OnInit, OnChanges {
-    
+
     private form: FormGroup;
-    @Input() model:any;
+    @Input() model: any;
     isUpdateMode: boolean;
 
-    @Output('cancel') cancel$: EventEmitter<any>;    
+    @Output('cancel') cancel$: EventEmitter<any>;
     @Output('submit') submit$: EventEmitter<any>;
 
-   
     constructor() {
         this.submit$ = new EventEmitter();
         this.cancel$ = new EventEmitter();
-        this.model = {address:{}};
+        this.model = {address: {}};
         this.form = this._buildForm();
     }
-  
-   
 
     /**
      * OnInit implementation
@@ -37,7 +34,7 @@ export class FormComponent implements OnInit, OnChanges {
      * @param record
      */
     ngOnChanges(record) {
-        if(record.model && record.model.currentValue) {
+        if (record.model && record.model.currentValue) {
             this.model = record.model.currentValue;
             this.isUpdateMode = !!this.model;
             this.form.patchValue(this.model);
