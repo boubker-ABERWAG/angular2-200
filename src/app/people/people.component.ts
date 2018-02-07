@@ -17,7 +17,7 @@ export class PeopleComponent implements OnInit {
     dialogStatus = 'inactive';
     view = 'card';
 
-    constructor(private _peopleService: PeopleService, public dialog: MdDialog) {}
+    constructor(private _http: HttpClient, public dialog: MatDialog, private _peopleService: PeopleService) {}
 
 
     /**
