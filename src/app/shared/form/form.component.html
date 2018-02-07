@@ -9,20 +9,20 @@
     <form #f="ngForm">
 
       <p *ngIf="isUpdateMode">
-        <mat-input-container>
-              <input [ngModel]="model.id" mdInput style="width:100%" placeholder="ID (disabled)" disabled  name="id">
-        </mat-input-container>        
+        <mat-form-field>
+              <input [ngModel]="model.id" matInput style="width:100%" placeholder="ID (disabled)" disabled  name="id">
+        </mat-form-field>
       </p>
 
       <table style="width: 100%" cellspacing="0">
         <tr>
           <td>
-           <mat-input-container>
-              <input [(ngModel)]="model.firstname" mdInput placeholder="First name *" name="firstname">
-            </mat-input-container>
-            <mat-input-container>
-              <input [(ngModel)]="model.lastname" mdInput placeholder="Last Name *" name="lastname">
-            </mat-input-container>
+           <mat-form-field>
+              <input [(ngModel)]="model.firstname" matInput placeholder="First name *" name="firstname">
+            </mat-form-field>
+            <mat-form-field>
+              <input [(ngModel)]="model.lastname" matInput placeholder="Last Name *" name="lastname">
+            </mat-form-field>
           </td>
           <td class="align-right">
             <img width="100" src="{{ model.photo || 'https://randomuser.me/api/portraits/lego/6.jpg' }}"/>
@@ -32,31 +32,31 @@
       </table>
 
       <p>
-        <mat-input-container>
-            <input [(ngModel)]="model.email" mdInput placeholder="Email *" style="width:100%" name="email">
-        </mat-input-container>        
+        <mat-form-field>
+            <input [(ngModel)]="model.email" matInput placeholder="Email *" style="width:100%" name="email">
+        </mat-form-field>
       </p>
 
   
       <p ngModelGroup="address">
-        <mat-input-container>
-            <input [(ngModel)]="model.address.street" mdInput placeholder="Address" style="width:100%" name="street">
-        </mat-input-container>
+        <mat-form-field>
+            <input [(ngModel)]="model.address.street" matInput placeholder="Address" style="width:100%" name="street">
+        </mat-form-field>
       </p>
 
       <p ngModelGroup="address">
-        <mat-input-container>
-            <input [(ngModel)]="model.address.city" mdInput placeholder="City" name="city">
-        </mat-input-container>
-        <mat-input-container>
-            <input [(ngModel)]="model.address.postalCode" mdInput placeholder="Postal Code" name="postalCode">
-        </mat-input-container>
+        <mat-form-field>
+            <input [(ngModel)]="model.address.city" matInput placeholder="City" name="city">
+        </mat-form-field>
+        <mat-form-field>
+            <input [(ngModel)]="model.address.postalCode" matInput placeholder="Postal Code" name="postalCode">
+        </mat-form-field>
       </p>
 
       <p>
-        <mat-input-container>
-            <input [(ngModel)]="model.phone" mdInput placeholder="Phone * (ex: 0612345678)" style="width:100%" name="phone">
-        </mat-input-container>
+        <mat-form-field>
+            <input [(ngModel)]="model.phone" matInput placeholder="Phone * (ex: 0612345678)" style="width:100%" name="phone">
+        </mat-form-field>
       </p>
 
       <p>
