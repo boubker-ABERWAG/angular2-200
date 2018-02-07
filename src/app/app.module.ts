@@ -1,7 +1,7 @@
 // CORE DEPS
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 // MATERIAL DESIGN MODULES
 import {
   MatToolbarModule,
@@ -34,14 +34,18 @@ import { PersonComponent } from './person';
     MatCheckboxModule,
     MatRadioModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
+    HttpClientModule,
+    APP_ROUTES,
   ],
   declarations: [
     PeopleAppComponent,
     HomeComponent,
     PersonComponent
   ],
-  providers: [ ],
+  providers: [
+    HttpClient,
+  ],
   bootstrap: [
     PeopleAppComponent
   ]
