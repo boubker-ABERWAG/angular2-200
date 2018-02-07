@@ -30,8 +30,8 @@ import { PeopleAppComponent } from './app.component';
     MatRadioModule,
     MatIconModule,
     MatListModule
-  ]at
-  decatarations: [
+  ],
+  declarations: [
     PeopleAppComponent
   ],
   providers: [ ],
