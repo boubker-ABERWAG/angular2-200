@@ -1,26 +1,26 @@
-<md-card class="md-whiteframe-2dp">
+<mat-card class="mat-whiteframe-2dp">
 
-  <md-card-title>
+  <mat-card-title>
     <span *ngIf="isUpdateMode">Update {{ model?.firstname || '?' }} {{ model?.lastname || '?' }}</span>
     <span *ngIf="!isUpdateMode">Create new person</span>
-  </md-card-title>
+  </mat-card-title>
 
-  <md-card-content>
+  <mat-card-content>
     <form novalidate #f="ngForm">
 
       <p *ngIf="isUpdateMode">
-        <md-input-container>
+        <mat-input-container>
           <input [ngModel]="model.id" mdInput style="width:100%" placeholder="ID (disabled)" disabled name="id">
-        </md-input-container>
+        </mat-input-container>
       </p>
 
       <table style="width: 100%" cellspacing="0">
         <tr>
           <td>
             <p [class.errors]="firstname.dirty && firstname.invalid">
-              <md-input-container>
+              <mat-input-container>
                 <input [(ngModel)]="model.firstname" mdInput placeholder="First name" minlength="2" required name="firstname" #firstname="ngModel">
-              </md-input-container>
+              </mat-input-container>
 
               <span *ngIf="firstname.dirty && firstname.errors?.required"><br>First name is required</span>
               <span *ngIf="firstname.dirty && firstname.errors?.minlength"><br>First name is 2 chars min</span>
@@ -28,9 +28,9 @@
             </p>
 
             <p [class.errors]="lastname.dirty && lastname.invalid">
-              <md-input-container>
+              <mat-input-container>
                 <input [(ngModel)]="model.lastname" mdInput placeholder="Last Name" minlength="2" required name="lastname" #lastname="ngModel">
-              </md-input-container>
+              </mat-input-container>
               <span *ngIf="lastname.dirty && lastname.errors?.required"><br>Last name is required</span>
               <span *ngIf="lastname.dirty && lastname.errors?.minlength"><br>Last name is 2 chars min</span>
             </p>
@@ -43,9 +43,9 @@
       </table>
 
        <p [class.errors]="email.dirty && email.invalid">
-        <md-input-container>
+        <mat-input-container>
           <input [(ngModel)]="model.email" mdInput placeholder="Email" required name="email" type="email" style="width:100%" #email="ngModel">
-        </md-input-container>
+        </mat-input-container>
 
         <span *ngIf="email.dirty && email.errors?.required">Email is mandatory</span>
       </p>
@@ -53,40 +53,40 @@
 
 
       <p ngModelGroup="address">
-        <md-input-container>
+        <mat-input-container>
           <input [(ngModel)]="model.address.street" mdInput placeholder="Address" style="width:100%" name="street">
-        </md-input-container>
+        </mat-input-container>
       </p>
 
       <p ngModelGroup="address">
-        <md-input-container>
+        <mat-input-container>
           <input [(ngModel)]="model.address.city" mdInput placeholder="City" name="city">
-        </md-input-container>
-        <md-input-container>
+        </mat-input-container>
+        <mat-input-container>
           <input [(ngModel)]="model.address.postalCode" mdInput placeholder="Postal Code" name="postalCode">
-        </md-input-container>
+        </mat-input-container>
       </p>    
 
       <p [class.errors]="phone.dirty && phone.invalid">
-        <md-input-container>
+        <mat-input-container>
           <input [(ngModel)]="model.phone" mdInput placeholder="Phone (ex: 0612345678)" style="width:100%" name="phone" pattern="\d{10}" required #phone="ngModel">
-        </md-input-container>
+        </mat-input-container>
         <span *ngIf="phone.dirty && phone.errors?.pattern">Phone number must be 10 digits</span>
         <span *ngIf="phone.dirty && phone.errors?.required">Phone number is mandatory</span>
       </p>
 
 
       <p>
-        <md-checkbox name="isManager" [(ngModel)]="model.isManager">Manager</md-checkbox>
+        <mat-checkbox name="isManager" [(ngModel)]="model.isManager">Manager</mat-checkbox>
       </p>
 
     </form>
-  </md-card-content>
+  </mat-card-content>
 
 
-  <md-card-actions align="end">
-    <button md-button type="button" (click)="cancel()">Cancel</button>
-    <button md-button color="primary" type="submit" (click)="submit()" [disabled]="!f.valid">Save</button>
-  </md-card-actions>
+  <mat-card-actions align="end">
+    <button mat-button type="button" (click)="cancel()">Cancel</button>
+    <button mat-button color="primary" type="submit" (click)="submit()" [disabled]="!f.valid">Save</button>
+  </mat-card-actions>
 
-</md-card>
+</mat-card>
