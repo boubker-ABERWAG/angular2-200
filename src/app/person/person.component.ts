@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PeopleService } from '../shared';
+import { PeopleService } from 'app/shared/people-service';
 
 @Component({
     selector: 'sfeir-person',
