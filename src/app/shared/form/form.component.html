@@ -9,18 +9,18 @@
     <form novalidate #f="ngForm">
 
       <p *ngIf="isUpdateMode">
-        <mat-input-container>
-          <input [ngModel]="model.id" mdInput style="width:100%" placeholder="ID (disabled)" disabled name="id">
-        </mat-input-container>
+        <mat-form-field>
+          <input [ngModel]="model.id" matInput style="width:100%" placeholder="ID (disabled)" disabled name="id">
+        </mat-form-field>
       </p>
 
       <table style="width: 100%" cellspacing="0">
         <tr>
           <td>
             <p [class.errors]="firstname.dirty && firstname.invalid">
-              <mat-input-container>
-                <input [(ngModel)]="model.firstname" mdInput placeholder="First name" minlength="2" required name="firstname" #firstname="ngModel">
-              </mat-input-container>
+              <mat-form-field>
+                <input [(ngModel)]="model.firstname" matInput placeholder="First name" minlength="2" required name="firstname" #firstname="ngModel">
+              </mat-form-field>
 
               <span *ngIf="firstname.dirty && firstname.errors?.required"><br>First name is required</span>
               <span *ngIf="firstname.dirty && firstname.errors?.minlength"><br>First name is 2 chars min</span>
@@ -28,9 +28,9 @@
             </p>
 
             <p [class.errors]="lastname.dirty && lastname.invalid">
-              <mat-input-container>
-                <input [(ngModel)]="model.lastname" mdInput placeholder="Last Name" minlength="2" required name="lastname" #lastname="ngModel">
-              </mat-input-container>
+              <mat-form-field>
+                <input [(ngModel)]="model.lastname" matInput placeholder="Last Name" minlength="2" required name="lastname" #lastname="ngModel">
+              </mat-form-field>
               <span *ngIf="lastname.dirty && lastname.errors?.required"><br>Last name is required</span>
               <span *ngIf="lastname.dirty && lastname.errors?.minlength"><br>Last name is 2 chars min</span>
             </p>
@@ -43,9 +43,9 @@
       </table>
 
        <p [class.errors]="email.dirty && email.invalid">
-        <mat-input-container>
-          <input [(ngModel)]="model.email" mdInput placeholder="Email" required name="email" type="email" style="width:100%" #email="ngModel">
-        </mat-input-container>
+        <mat-form-field>
+          <input [(ngModel)]="model.email" matInput placeholder="Email" required name="email" type="email" style="width:100%" #email="ngModel">
+        </mat-form-field>
 
         <span *ngIf="email.dirty && email.errors?.required">Email is mandatory</span>
       </p>
@@ -53,24 +53,24 @@
 
 
       <p ngModelGroup="address">
-        <mat-input-container>
-          <input [(ngModel)]="model.address.street" mdInput placeholder="Address" style="width:100%" name="street">
-        </mat-input-container>
+        <mat-form-field>
+          <input [(ngModel)]="model.address.street" matInput placeholder="Address" style="width:100%" name="street">
+        </mat-form-field>
       </p>
 
       <p ngModelGroup="address">
-        <mat-input-container>
-          <input [(ngModel)]="model.address.city" mdInput placeholder="City" name="city">
-        </mat-input-container>
-        <mat-input-container>
-          <input [(ngModel)]="model.address.postalCode" mdInput placeholder="Postal Code" name="postalCode">
-        </mat-input-container>
+        <mat-form-field>
+          <input [(ngModel)]="model.address.city" matInput placeholder="City" name="city">
+        </mat-form-field>
+        <mat-form-field>
+          <input [(ngModel)]="model.address.postalCode" matInput placeholder="Postal Code" name="postalCode">
+        </mat-form-field>
       </p>    
 
       <p [class.errors]="phone.dirty && phone.invalid">
-        <mat-input-container>
-          <input [(ngModel)]="model.phone" mdInput placeholder="Phone (ex: 0612345678)" style="width:100%" name="phone" pattern="\d{10}" required #phone="ngModel">
-        </mat-input-container>
+        <mat-form-field>
+          <input [(ngModel)]="model.phone" matInput placeholder="Phone (ex: 0612345678)" style="width:100%" name="phone" pattern="\d{10}" required #phone="ngModel">
+        </mat-form-field>
         <span *ngIf="phone.dirty && phone.errors?.pattern">Phone number must be 10 digits</span>
         <span *ngIf="phone.dirty && phone.errors?.required">Phone number is mandatory</span>
       </p>

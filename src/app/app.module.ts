@@ -1,7 +1,7 @@
 // CORE DEPS
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 // MATERIAL DESIGN MODULES
 import {
@@ -13,7 +13,8 @@ import {
   MatCheckboxModule,
   MatRadioModule,
   MatIconModule,
-  MatListModule
+  MatListModule,
+  MatDialogModule,
 } from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
@@ -40,7 +41,11 @@ import { UpdateComponent } from './update/update.component';
     MatCheckboxModule,
     MatRadioModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
+    MatDialogModule,
+    HttpClientModule,
+    APP_ROUTES,
+    FormsModule,
   ],
   declarations: [
     PeopleAppComponent,
@@ -53,7 +58,9 @@ import { UpdateComponent } from './update/update.component';
     UpdateComponent
   ],
   entryComponents: [AddDialogComponent],
-  providers: [ ],
+  providers: [
+    HttpClient,
+  ],
   bootstrap: [
     PeopleAppComponent
   ]
