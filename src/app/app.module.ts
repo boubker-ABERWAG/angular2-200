@@ -1,8 +1,7 @@
 // CORE DEPS
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 // MATERIAL DESIGN MODULES
 import {
   MatToolbarModule,
@@ -13,7 +12,8 @@ import {
   MatCheckboxModule,
   MatRadioModule,
   MatIconModule,
-  MatListModule
+  MatListModule,
+  MatDialogModule,
 } from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
@@ -24,8 +24,9 @@ import { HomeComponent } from './home';
 import { PersonComponent } from './person';
 import { PeopleComponent } from './people';
 import { CardComponent } from './shared/card';
-import { AddDialogComponent } from './people/add-dialog/add-dialog.component';
-import { FormComponent } from './shared/form';
+import { AddDialogComponent } from 'app/people/add-dialog/add-dialog.component';
+import { FormComponent } from 'app/shared/form';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
@@ -39,7 +40,11 @@ import { FormComponent } from './shared/form';
     MatCheckboxModule,
     MatRadioModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
+    MatDialogModule,
+    HttpClientModule,
+    APP_ROUTES,
+    FormsModule,
   ],
   declarations: [
     PeopleAppComponent,
@@ -48,10 +53,12 @@ import { FormComponent } from './shared/form';
     PeopleComponent,
     CardComponent,
     AddDialogComponent,
-    FormComponent
+    FormComponent,
   ],
   entryComponents: [AddDialogComponent],
-  providers: [ ],
+  providers: [
+    HttpClient,
+  ],
   bootstrap: [
     PeopleAppComponent
   ]
