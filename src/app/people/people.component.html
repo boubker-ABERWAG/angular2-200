@@ -3,16 +3,16 @@
 </section>
 
 <section>
-  <md-list>
-    <md-list-item (click)="navigate(person)" *ngFor="let person of people" class="md-whiteframe-2dp md-card">
-      <img md-list-avatar src="{{ person.photo }}">
-      <h3 md-line> {{person.firstname}} {{person.lastname}} </h3>
-      <p md-line>
+  <mat-list>
+    <mat-list-item (click)="navigate(person)" *ngFor="let person of people" class="mat-whiteframe-2dp mat-card">
+      <img mat-list-avatar src="{{ person.photo }}">
+      <h3 mat-line> {{person.firstname}} {{person.lastname}} </h3>
+      <p mat-line>
         <span> {{person.entity}} </span>
         — <span>{{person.email}} </span>
       </p>
-    </md-list-item>
-  </md-list>
+    </mat-list-item>
+  </mat-list>
 </section>
 
 <section class="dialog-modal" [ngClass]="{ 'active': dialogStatus == 'active' }">
@@ -20,10 +20,12 @@
 </section>
 
 <section class="buttons-fab" *ngIf="dialogStatus == 'inactive'">
-  <button (click)="showDialog()" md-fab color="accent" class="button-add">
+  <button (click)="showDialog()" mat-fab color="accent" class="button-add">
     <i class="material-icons">add</i>
   </button>
 
-<button (click)="showDialog()" *ngIf="dialogStatus == 'inactive'" mat-fab color="accent">
-  <i class="material-icons">add</i>
-</button>
+  <button mat-fab color="warn">
+    <i class="material-icons">list</i>
+    <!-- <i class="material-icons">view_stream</i> -->
+  </button>
+</section>
