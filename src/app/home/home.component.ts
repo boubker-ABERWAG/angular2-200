@@ -6,15 +6,14 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['home.component.css']
 })
 export class HomeComponent implements OnInit {
-    name:string;
-    
-    constructor() {
-        this.name = 'Angular 2';
-    }
+  name: string;
 
-    /**
-     * OnInit implementation
-     */
-    ngOnInit() {
-    }
+  constructor() {}
+
+  /**
+   * OnInit implementation
+   */
+  ngOnInit() {
+    this.name = 'Angular';
+  }
 }
