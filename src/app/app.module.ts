@@ -15,8 +15,6 @@ import {
 } from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
-
-
 //import { PeopleAppComponent } from './app.component';
 
 @NgModule({
