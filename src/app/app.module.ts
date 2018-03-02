@@ -16,8 +16,9 @@ import {
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import { PeopleAppComponent } from './app.component';
-import { HomeComponent } from './home';
-import { PersonComponent } from './person';
+import { HomeComponent } from './home/home.component';
+import { PersonComponent } from './person/person.component';
+
 
 @NgModule({
   imports: [
