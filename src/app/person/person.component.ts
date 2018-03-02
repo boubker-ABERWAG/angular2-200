@@ -1,21 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import { PEOPLE } from '../_static/people';
+import { PEOPLE } from './people';
 
 @Component({
-    selector: 'sfeir-person',
-    templateUrl: 'person.component.html',
-    styleUrls: ['person.component.css']
+  selector: 'sfeir-person',
+  templateUrl: 'person.component.html',
+  styleUrls: ['person.component.css']
 })
 export class PersonComponent implements OnInit {
-    public person: any;
+  public person: any;
 
-    constructor() {
-        this.person = PEOPLE[0];
-    }
+  constructor() {}
 
-    /**
-     * OnInit implementation
-     */
-    ngOnInit() {
-    }
+  /**
+   * OnInit implementation
+   */
+  ngOnInit() {
+    this.person = PEOPLE[0];
+  }
 }
