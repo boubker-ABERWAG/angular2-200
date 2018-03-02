@@ -9,7 +9,7 @@ const BASE_URL = 'http://localhost:9000';
   styleUrls: ['person.component.css']
 })
 export class PersonComponent implements OnInit {
-  private person: any = {};
+  private _person: any = {};
 
   constructor(private _http: HttpClient) {}
 
@@ -18,7 +18,7 @@ export class PersonComponent implements OnInit {
   */
   ngOnInit() {
   this._http.get(`${BASE_URL}/api/peoples/`)
-    .subscribe(people => this.person = people[0]);
+    .subscribe(peoples => this._person = peoples[0]);
   }
 
   /**
@@ -26,6 +26,14 @@ export class PersonComponent implements OnInit {
   */
   random() {
   this._http.get(`${BASE_URL}/api/peoples/random`)
-    .subscribe(person => this.person = person);
+    .subscribe(people => this._person = people);
+  }
+
+  public get person(): any{
+    return this._person;
+  }
+
+  public set person(person: any){
+    this._person = person;
   }
 }
