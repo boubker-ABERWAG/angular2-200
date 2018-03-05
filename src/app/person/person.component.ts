@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PEOPLE } from '../_static/people';
+import {PEOPLE} from './people';
 
 @Component({
     selector: 'sfeir-person',
@@ -23,6 +23,6 @@ export class PersonComponent implements OnInit {
      * Returns random people
      */
     random() {
-        this.person = PEOPLE[ (Math.random() * PEOPLE.length) | 0 ];
+        this.person = PEOPLE[(Math.random() * PEOPLE.length) | 0 ];
     }
 }
