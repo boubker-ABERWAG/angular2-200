@@ -16,11 +16,9 @@ import {
 } from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
-// import { APP_ROUTES } from './app.routes';
-
 import { PeopleAppComponent } from './app.component';
-import { HomeComponent } from './home';
-import { PersonComponent } from './person';
+import { PersonComponent } from './person/person.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   imports: [
